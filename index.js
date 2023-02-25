@@ -13,6 +13,7 @@ const io = require("socket.io")(server, {
 
 app.use(cors());
 app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
 	res.send('Running');
