@@ -1,39 +1,8 @@
-var fs = require('fs');
-var https = require('https');
+
 const app = require("express")();
-var privateKey  = fs.readFileSync('../private.key', 'utf8');
-var certificate = fs.readFileSync('../primary.crt', 'utf8');
-const cluster=require("cluster");
-const io_redis = require('socket.io-redis');
-var credentials = {key: privateKey, cert: certificate};
-var httpsServer = https.createServer(credentials, app);
-const numCPUs = require("os").cpus().length;
-const bodyParser=require("body-parser");
-
-// =====REDIS===================================
-// const Redis = require('redis');
-// const client = Redis.createClient({
-//     // url: 'redis://redis:6380',
-//     host: '127.0.0.1',
-//     port: 6380,
-//     password: ''
-// });
-// client.connect('connect', function() {
-//     console.log('Connected to Redis');
-// });
-
-// client.set('mykey', 'myvalue', Redis.print);
-
-// client.get('mykey', function(error, result) {
-//     if (error) {
-//         console.log("ERROR= "+error);
-//         throw error;
-//     }
-//     console.log('GET result ->' + result);
-// });
-// ================================================
-
+const server = require("http").createServer(app);
 const cors = require("cors");
+const bodyParser=require("body-parser");
 
 const io = require("socket.io")(httpsServer, {
 	cors: {
