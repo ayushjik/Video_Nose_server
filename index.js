@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 	res.send('Running');
 });
 app.get('/StepCount', (req, res) => {
-	const value = req.body.value;
+	const value = req.query.data;
 	res.send(`StepCount Value= ${value}`);
 	console.log(`Received value: ${value}`);
 
