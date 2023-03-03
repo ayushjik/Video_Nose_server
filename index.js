@@ -139,9 +139,12 @@ let Rec_id_check=[];
 	});
 // =========End Socket=====================================================
 	socket.emit('step_count',Step_Count);
+		console.log("Step_Count_Send:- "+ Step_Count)
 	socket.on("Step_count_Id",({Doc_id,Step_Count})=>{
 		io.to(Doc_id).emit('Step_count_value_rec', {scount:Step_Count});
+		console.log("Doc_id:- "+ Doc_id, "STep_count= "+Step_Count)
 	})
+	
 
 // =========Start ZOOM=====================================================
 	// socket.on("send_message",({mecheck,Value})=>{
