@@ -22,8 +22,9 @@ let Step_Count
 app.get('/StepCount', (req, res) => {
 	const value = req.query.data;
 	Step_Count=value;
-	res.send(`StepCount Value= ${value}`);
-	console.log(`Received value: ${value}`);
+	res.send(`StepCount_Node_Value= ${value}`);
+	console.log(`Received_Node_value: ${value}`);
+	console.log(`Step_Count_Node_value: ${Step_Count}`);
 	// res.status(200).send('Value received');
 });
 // if (cluster.isPrimary) {
