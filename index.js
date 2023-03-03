@@ -39,8 +39,8 @@ app.get('/StepCount', (req, res) => {
 
 io.on("connection", (socket) => {
 	socket.emit('me',socket.id);
-	socket.emit('step_count',Step_Count);
-		console.log("Step_Count_Send:- "+ Step_Count)
+// 	socket.emit('step_count',Step_Count);
+// 		console.log("Step_Count_Send:- "+ Step_Count)
 
 	socket.on("disconnect", () => {
 		socket.broadcast.emit("callEnded")
