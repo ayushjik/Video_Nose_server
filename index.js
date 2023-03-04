@@ -41,7 +41,7 @@ io.on("connection", (socket) => {
 	socket.emit('me',socket.id);
 // 	socket.emit('step_count',Step_Count);
 // 		console.log("Step_Count_Send:- "+ Step_Count)
-	io.to(Rec_id_Doctor).to(socket.id).emit('step_count',Step_Count);
+	socket.emit('step_count',Step_Count);
 		console.log("Step_Count_Send:- "+ Step_Count)
 
 	socket.on("disconnect", () => {
